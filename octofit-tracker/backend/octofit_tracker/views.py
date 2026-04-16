@@ -26,11 +26,19 @@ class WorkoutViewSet(viewsets.ModelViewSet):
     serializer_class = WorkoutSerializer
 
 @api_view(['GET'])
-def api_root(request, format=None):
+def api_root(request, format=None, base_url=None):
+    # Use base_url for all endpoints if provided
+    def build_url(name):
+        url = reverse(name, request=request, format=format)
+        if base_url:
+            # Only keep the /api/... part
+            path = url[url.find('/api/'):]
+            return f"{base_url}{path}"
+        return url
     return Response({
-        'users': reverse('user-list', request=request, format=format),
-        'teams': reverse('team-list', request=request, format=format),
-        'activities': reverse('activity-list', request=request, format=format),
-        'leaderboards': reverse('leaderboard-list', request=request, format=format),
-        'workouts': reverse('workout-list', request=request, format=format),
+        'users': build_url('user-list'),
+        'teams': build_url('team-list'),
+        'activities': build_url('activity-list'),
+        'leaderboards': build_url('leaderboard-list'),
+        'workouts': build_url('workout-list'),
     })
