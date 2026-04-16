@@ -1,0 +1,53 @@
+.App {
+  min-height: 100vh;
+  background-color: #f4f6fb;
+}
+
+body {
+  background-color: #f4f6fb;
+}
+
+.navbar {
+  background-color: #ffffff !important;
+  box-shadow: 0 4px 20px rgba(13, 110, 253, 0.08);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.navbar-nav .nav-link {
+  color: #495057 !important;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #0d6efd !important;
+}
+
+.card {
+  border: none;
+  border-radius: 1rem;
+}
+
+.card-header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.modal-content {
+  border-radius: 1rem;
+}
+
+.text-muted {
+  color: #6c757d !important;
+}
+
+.btn-primary {
+  min-width: 110px;
+}
